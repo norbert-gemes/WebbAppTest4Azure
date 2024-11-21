@@ -16,7 +16,7 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
-      - name: SET env
+      - name: Set Env
         run: |
           echo "IMAGE_TAG-$(date +%s)" >> $GITHUB_ENV
 
