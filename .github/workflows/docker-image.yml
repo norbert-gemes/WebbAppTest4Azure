@@ -18,7 +18,7 @@ jobs:
       - uses: actions/checkout@v4
       - name: Set Env
         run: |
-          echo "IMAGE_TAG-$(date +%s)" >> $GITHUB_ENV
+          echo "IMAGE_TAG=$(date +%s)" >> $GITHUB_ENV
 
       - uses: actions/checkout@v4
       - name: Build the Docker image
