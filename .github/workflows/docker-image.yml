@@ -26,3 +26,4 @@ jobs:
           docker build . --file Dockerfile --tag ghcr.io/norbert-gemes/webbtest4azure:$IMAGE_TAG
           docker login ghcr.io -u  norbert-gemes -p ${{secrets.WEBTEST4AZURE}}
           docker push ghcr.io/norbert-gemes/webbtest4azure:$IMAGE_TAG
+
