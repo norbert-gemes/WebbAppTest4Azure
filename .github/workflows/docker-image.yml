@@ -27,4 +27,12 @@ jobs:
           docker login ghcr.io -u  norbert-gemes -p ${{secrets.WEBTEST4AZURE}}
           docker push ghcr.io/norbert-gemes/webbtest4azure:$IMAGE_TAG
           docker push ghcr.io/norbert-gemes/webbtest4azure:latest
-
+    
+      - name: Deploy to Azure Web App
+        id: deploy-to-webapp
+        uses: azure/webapps-deploy@v2
+        with:
+          app-name: 'Test-Web-GN'
+          slot-name: 'production'
+          publish-profile: ${{ secrets.AzureAppService_PublishProfile_f0c57625d4594323b140348462df91ba }}
+          images: 'ghcr.io/norbert-gemes/webbtest4azure:${{ env.IMAGE_TAG }}'
